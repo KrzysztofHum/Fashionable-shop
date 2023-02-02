@@ -1,19 +1,19 @@
-import User from "../models/userModel.js";
+const User = require("../models/userModel.js");
 
 const createUser = async (req, res) => {
   const { email } = req.body;
-  const findUser = await User.findOne(email);
+  const findUser = await User.findOne({ email: email });
   if (!findUser) {
     //Create a new User
-    const newUSer = User.create(req.body);
+    const newUSer = await User.create(req.body);
     res.json(newUSer);
   } else {
     res.json({
-      msg: "USer Already Exists",
+      msg: "User Already Exists",
       success: false,
     });
     //User Already exists
   }
 };
 
-export default createUser;
+module.exports = createUser;
