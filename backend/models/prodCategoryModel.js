@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var categorySchema = new mongoose.Schema(
+var prodCategorySchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -11,3 +11,5 @@ var categorySchema = new mongoose.Schema(
   },
   { timeseries: true }
 );
+
+module.exports = mongoose.model("PCategory", prodCategorySchema);
