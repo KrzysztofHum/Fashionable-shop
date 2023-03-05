@@ -351,7 +351,30 @@ const userCart = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserCart = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  validateMongoDbId(_id);
+  try {
+    const cart = await Cart.findOne({ orderby: _id }).populate(
+      "products.product"
+    );
+    res.json(cart);
+  } catch (err) {
+    throw new Error(err);
+  }
+});
 
+const emptyCart = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  validateMongoDbId(_id);
+  try {
+    const user = await User.findOne({ _id });
+    const cart = await Cart.findByIdAndDelete({ orderby: user._id });
+    res.json(cart);
+  } catch (err) {
+    throw new Error(err);
+  }
+});
 
 module.exports = {
   createUser,
@@ -371,4 +394,6 @@ module.exports = {
   getWishlist,
   saveAddress,
   userCart,
+  getUserCart,
+  emptyCart,
 };
