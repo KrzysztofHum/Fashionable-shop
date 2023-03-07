@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 
-function App(): JSX.Element {
+function App() {
   return (
     <BrowserRouter>
       <Routes>

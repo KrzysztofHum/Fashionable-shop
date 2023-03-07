@@ -1,7 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import Container from "../components/Container";
+import BlogCard from "../components/BlogCard";
+import SpecialProduct from "../components/SpecialProduct";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   return (
@@ -156,7 +158,10 @@ const Home = () => {
           <div className="col-12">
             <h3 className="section-heading">Featured Collection</h3>
           </div>
-          {/* TODO Product Cart's */}
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
       </Container>
 
@@ -164,11 +169,7 @@ const Home = () => {
         <div className="row">
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img
-                src=""
-                className="img-fluid"
-                alt="famous"
-              />
+              <img src="" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5>Big Screen</h5>
                 <h6>Smart Watch Series 7</h6>
@@ -178,11 +179,7 @@ const Home = () => {
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img
-                src=""
-                className="img-fluid"
-                alt="famous"
-              />
+              <img src="" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">Studio Display</h5>
                 <h6 className="text-dark">600 nits of brightness.</h6>
@@ -192,11 +189,7 @@ const Home = () => {
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img
-                src=""
-                className="img-fluid"
-                alt="famous"
-              />
+              <img src="" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">smartphones</h5>
                 <h6 className="text-dark">Smartphone 13 Pro.</h6>
@@ -208,11 +201,7 @@ const Home = () => {
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img
-                src=""
-                className="img-fluid"
-                alt="famous"
-              />
+              <img src="" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">home speakers</h5>
                 <h6 className="text-dark">Room-filling sound.</h6>
@@ -224,14 +213,18 @@ const Home = () => {
           </div>
         </div>
       </Container>
-
       <Container class1="special-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Special Products</h3>
           </div>
         </div>
-        {/* TODO Special product */}
+        <div className="row">
+          <SpecialProduct />
+          <SpecialProduct />
+          <SpecialProduct />
+          <SpecialProduct />
+        </div>
       </Container>
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
@@ -282,7 +275,20 @@ const Home = () => {
             <h3 className="section-heading">Our Latest Blogs</h3>
           </div>
         </div>
-        {/* TODO Block Cart */}
+        <div className="row">
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+        </div>
       </Container>
     </>
   );
