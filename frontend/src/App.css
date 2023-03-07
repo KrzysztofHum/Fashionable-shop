@@ -92,3 +92,19 @@ a {
   color: var(--yellow-btn) !important;
 }
 /* Header Part End Here*/
+
+/* Footer Part */
+.footer {
+  background-color: var(--dark-grey-1);
+}
+
+.footer:nth-child(3) {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .input-group-text {
+  background-color: var(--drark-grey);
+  color: white;
+  padding: 8px 17px;
+}
+/* Footer Part End Here*/
