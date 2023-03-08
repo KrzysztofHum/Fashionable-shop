@@ -29,6 +29,9 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="reset-password" element={<Resetpassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="refund-policy" element={<RefundPloicy />} />
+          <Route path="shipping-policy" element={<ShippingPolicy />} />
+          <Route path="term-conditions" element={<TermAndContions />} />
         </Route>
       </Routes>
     </BrowserRouter>
