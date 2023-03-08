@@ -15,6 +15,7 @@ import Resetpassword from "./pages/Resetpassword";
 import TermAndContions from "./pages/TermAndContions";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="product" element={<OurStore />} />
+          <Route path="product/:id" element={<SingleProduct />} />
           <Route path="blogs" element={<Blog />} />
           <Route path="compare-product" element={<CompareProduct />} />
           <Route path="login" element={<Login />} />
