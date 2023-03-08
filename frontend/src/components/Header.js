@@ -51,7 +51,7 @@ const Header = () => {
               <div className="">
                 <Link
                   className="d-flex align-items-center gap-10 text-white"
-                  to=""
+                  to="/compare-product"
                 >
                   <img src="images/compare.svg" alt="compare" />
                   <p className="mb-0">
