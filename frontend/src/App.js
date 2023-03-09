@@ -19,7 +19,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Checkout from "./pages/Checkout";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
-import SingleBlog from "./SingleBlog";
+import SingleBlog from "./pages/SingleBlog";
 
 function App() {
   return (
