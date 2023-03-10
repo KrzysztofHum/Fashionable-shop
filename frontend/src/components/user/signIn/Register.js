@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { API_ROUTES } from "../../../const/routes";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register, reset } from "../../../features/auth/authSlice";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -15,19 +15,39 @@ const Register = () => {
   const { firstname, lastname, email, mobile, password, confirmPassword } =
     formData;
 
+  const dispatch = useDispatch();
+
+  const { user, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+    if (isSuccess || user) {
+      console.log("success");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, dispatch]);
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    await axios
-      .post(API_ROUTES.REGISTER, formData)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (password !== confirmPassword) {
+      console.log("passwords do not match");
+    } else {
+      const userData = {
+        firstname,
+        lastname,
+        email,
+        mobile,
+        password,
+      };
+      dispatch(register(userData));
+    }
   };
 
   return (
