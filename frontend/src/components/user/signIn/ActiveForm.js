@@ -52,11 +52,7 @@ const AvtiveForm = () => {
   if (currentForm === "REGISTER") {
     return (
       <>
-        <Register
-          onLoginClick={() => {
-            setCurrentForm("LOGIN");
-          }}
-        />
+        <Register />
         <Footer>
           <div className="d-flex align-items-center">
             <p className="m-0 fs-5">Have you already an account?</p>

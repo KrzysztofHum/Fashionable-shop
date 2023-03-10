@@ -2,24 +2,24 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../../features/auth/authSlice";
 import { Formik, Form, Field } from "formik";
-import RegisterSchema from "../../../utils/RegisterSchema";
+import RegisterSchema from "../../../utils/auth/RegisterSchema";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ onLoginClick }) => {
+const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
   useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
     if (isSuccess || user) {
       console.log("success");
+      navigate("/");
     }
     dispatch(reset());
-  }, [user, isError, isSuccess, message, dispatch]);
+  }, [user, isSuccess, navigate, dispatch]);
 
   return (
     <>
@@ -27,6 +27,7 @@ const Register = ({ onLoginClick }) => {
         <div className="col-12">
           <div className="auth-card">
             <h3 className="text-center mb-3">Sign Up</h3>
+            {isError && <div>{message}</div>}
             <Formik
               initialValues={{
                 firstname: "",
@@ -39,7 +40,6 @@ const Register = ({ onLoginClick }) => {
               validationSchema={RegisterSchema}
               onSubmit={(values) => {
                 dispatch(register(values));
-                onLoginClick();
               }}
             >
               {({ errors, touched }) => (
