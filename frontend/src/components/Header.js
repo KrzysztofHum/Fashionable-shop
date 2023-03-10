@@ -73,7 +73,7 @@ const Header = () => {
               <div className="">
                 <Link
                   className="d-flex align-items-center gap-10 text-white"
-                  to="/login"
+                  to="/signin"
                 >
                   <img src="images/user.svg" alt="user" />
                   <p className="mb-0">
