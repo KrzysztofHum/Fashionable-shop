@@ -5,9 +5,8 @@ const ProductSchema = Yup.object().shape({
     .min(6, "Title is too short")
     .max(50, "Title is too long")
     .required("Title is required"),
-  desc: Yup.string()
+  description: Yup.string()
     .min(6, "Description is too short")
-    .max(50, "Description is too long")
     .required("Description is required"),
   price: Yup.number().required("Price is required"),
   category: Yup.string().required("Category is required"),

@@ -1,12 +1,13 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import ProductSchema from "../../utils/product/ProductSchema";
-import { addProduct, reset } from "../../features/product/productSlice";
+import { addProduct } from "../../features/product/productSlice";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
 
-  const { isError, isSuccess, message } = useSelector((state) => state.product);
+  const { isError, message } = useSelector((state) => state.product);
+
   return (
     <div>
       <h3 className="mb-4">Add Product</h3>
@@ -14,7 +15,7 @@ const CreateProduct = () => {
       <Formik
         initialValues={{
           title: "",
-          desc: "",
+          description: "",
           price: null,
           category: "",
           color: "",
@@ -38,11 +39,13 @@ const CreateProduct = () => {
             {errors.title && touched.title && <div>{errors.title}</div>}
             <Field
               className="form-control"
-              name="desc"
+              name="description"
               type="text"
               placeholder="Description"
             />
-            {errors.desc && touched.desc && <div>{errors.desc}</div>}
+            {errors.description && touched.description && (
+              <div>{errors.description}</div>
+            )}
 
             <Field
               className="form-control"
@@ -85,11 +88,11 @@ const CreateProduct = () => {
             {errors.brand && touched.brand && <div>{errors.brand}</div>}
             <Field
               className="form-control"
-              name="image"
+              name="images"
               type="image"
               placeholder="Image"
             />
-            {errors.image && touched.image && <div>{errors.image}</div>}
+            {errors.images && touched.images && <div>{errors.images}</div>}
 
             <div>
               <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
