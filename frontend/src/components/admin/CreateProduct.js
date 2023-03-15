@@ -6,7 +6,12 @@ import { addProduct } from "../../features/product/productSlice";
 const CreateProduct = () => {
   const dispatch = useDispatch();
 
-  const { isError, message } = useSelector((state) => state.product);
+  const { isError, success, message } = useSelector((state) => state.product);
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(addProduct(values));
+    resetForm();
+  };
 
   return (
     <div>
@@ -16,17 +21,15 @@ const CreateProduct = () => {
         initialValues={{
           title: "",
           description: "",
-          price: null,
+          price: Number,
           category: "",
           color: "",
           brand: "",
-          quantity: "",
+          quantity: Number,
           images: "",
         }}
         validationSchema={ProductSchema}
-        onSubmit={(values) => {
-          dispatch(addProduct(values));
-        }}
+        onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
           <Form className="d-flex flex-column gap-15">
