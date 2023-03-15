@@ -37,6 +37,11 @@ a {
   display: inline-block;
 }
 
+li,
+ul {
+  list-style: none;
+}
+
 .form-control:focus {
   box-shadow: none;
   border-color: inherit;
@@ -831,3 +836,42 @@ a {
   color: var(--color-light-grey);
 }
 /* Shipping page ends here */
+
+/* Admin Panel */
+
+.admin-header-logo {
+  background-color: #fdd017;
+}
+
+.admin-header-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.admin-layout {
+  min-height: calc(100vh - 82px);
+}
+
+.admin-layout main {
+  background-color: var(--color-white-1);
+}
+
+.admin-nav {
+  background-color: #001529;
+  min-height: 100%;
+}
+
+.admin-nav-dropdown {
+  border-radius: 0.5rem;
+  /* background-color: #1677ff; */
+}
+
+.admin-nav-dropdown span {
+  color: #ffffffa6;
+}
+
+.admin-nav-dropdown span svg {
+  display: flex;
+}
+
+/* Admin Panel End*/
