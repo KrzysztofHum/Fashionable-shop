@@ -18,11 +18,16 @@ import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import SingleBlog from "./pages/SingleBlog";
 import SignIn from "./pages/SignIn";
+import AdminCreateProduct from "./pages/AdminCreateProduct";
+import AdminPanelLayout from "./components/admin/AdminPanelLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<AdminPanelLayout />}>
+          <Route path="admin" element={<AdminCreateProduct />} />
+        </Route>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />

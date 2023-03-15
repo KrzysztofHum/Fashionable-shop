@@ -76,6 +76,16 @@ const HeaderUpper = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
+                  {user.role === "admin" && (
+                    <li>
+                      <Link
+                        className="dropdown-item text-white"
+                        onClick={console.log("createItem")}
+                      >
+                        Create item
+                      </Link>
+                    </li>
+                  )}
                   <li>
                     <Link
                       className="dropdown-item text-white"
