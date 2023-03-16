@@ -43,6 +43,15 @@ ul {
   list-style: none;
 }
 
+svg {
+  height: 35px;
+  width: 35px;
+}
+
+a:hover svg {
+  color: var(--yellow-btn);
+}
+
 .form-control:focus {
   box-shadow: none;
   border-color: inherit;
@@ -148,13 +157,12 @@ ul {
   background-color: var(--dark);
 }
 
-.header-upper .input-group-text {
-  background-color: var(--yellow-btn);
+.header-logo a:hover {
+  color: var(--yellow-btn) !important;
 }
 
-.header-upper .header-upper-links img {
-  width: 35px;
-  height: 35px;
+.header-upper .input-group-text {
+  background-color: var(--yellow-btn);
 }
 
 .header-upper .dropdown-menu {
@@ -165,19 +173,30 @@ ul {
 }
 
 .hamburger-menu {
+  display: none;
+}
+
+.hamburger-menu button {
   background-color: var(--dark-1);
   border: none;
   color: white;
 }
 
-.hamburger-menu svg {
-  width: 35px;
-  height: 35px;
+.hamburger-menu button svg:hover {
+  color: var(--yellow-btn);
 }
 
 .header-upper .dropdown button:focus,
 .header-bottom .dropdown button:focus {
   box-shadow: none;
+}
+.header-upper .dropdown button:hover,
+.header-bottom .dropdown button:hover {
+  color: var(--yellow-btn);
+}
+
+.header-upper .header-upper-links a:hover p {
+  color: var(--yellow-btn);
 }
 
 .header-upper .dropdown-item,
@@ -225,8 +244,17 @@ ul {
   display: none;
 }
 
+.menu-links a:hover {
+  color: var(--yellow-btn) !important;
+}
+
 .header-mobile-menu button {
   background-color: white;
+  border: none;
+}
+
+.header-mobile-menu button:hover {
+  color: var(--yellow-btn);
   border: none;
 }
 
@@ -237,7 +265,15 @@ ul {
   gap: 10px;
 }
 
+.header-mobile-nav ul li a:hover {
+  color: var(--yellow-btn) !important;
+}
+
 @media (max-width: 992px) {
+  .hamburger-menu {
+    display: block;
+  }
+
   .header-mobile-active {
     display: block;
   }

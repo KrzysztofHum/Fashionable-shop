@@ -1,4 +1,3 @@
-
 const HeaderTop = () => {
   return (
     <div className="header-top-strip py-3">
@@ -10,12 +9,7 @@ const HeaderTop = () => {
             </p>
           </div>
           <div className="col-6">
-            <p className="text-end text-white mb-0">
-              Hotline:
-              <a className="text-white" href="tel:+48 612332696">
-                +48 612 332 696
-              </a>
-            </p>
+            <p className="text-end text-white mb-0">Hotline: +48 612 332 696</p>
           </div>
         </div>
       </div>

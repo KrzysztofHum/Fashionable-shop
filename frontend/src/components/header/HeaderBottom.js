@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { BiCategoryAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const HeaderBottom = () => {
   return (
@@ -17,7 +17,7 @@ const HeaderBottom = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img src="images/menu.svg" alt="" />
+                    <BiCategoryAlt />
                     <span className="me-5 d-inline-block">Shop Categories</span>
                   </button>
                   <ul
@@ -44,10 +44,10 @@ const HeaderBottom = () => {
               </div>
               <div className="menu-links">
                 <div className="d-flex align-items-center gap-15">
-                  <NavLink to="/">Home</NavLink>
-                  <NavLink to="/">Our Store</NavLink>
-                  <NavLink to="/">Blogs</NavLink>
-                  <NavLink to="/contact">Contact</NavLink>
+                  <Link to="/">Home</Link>
+                  <Link to="/">Our Store</Link>
+                  <Link to="/">Blogs</Link>
+                  <Link to="/contact">Contact</Link>
                 </div>
               </div>
             </div>
