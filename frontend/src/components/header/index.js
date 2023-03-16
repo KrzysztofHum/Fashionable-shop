@@ -9,12 +9,9 @@ const Header = () => {
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
     if (hamburgerOpen) {
-      document.body.setAttribute(
-        "style",
-        "overflow: visible; position: static;"
-      );
+      document.body.setAttribute("style", "overflow: visible");
     } else {
-      document.body.setAttribute("style", "overflow: hidden; position: fixed;");
+      document.body.setAttribute("style", "overflow: hidden");
     }
   };
   return (
