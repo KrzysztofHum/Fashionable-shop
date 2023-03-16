@@ -13,7 +13,7 @@ const ProductSchema = Yup.object().shape({
   color: Yup.string(),
   brand: Yup.string().required("Brand is required"),
   quantity: Yup.number().required("Quantity is required"),
-  images: Yup.string(),
+  image: Yup.mixed().required("Image is required"),
 });
 
 export default ProductSchema;

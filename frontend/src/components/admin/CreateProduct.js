@@ -2,11 +2,12 @@ import { Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import ProductSchema from "../../utils/product/ProductSchema";
 import { addProduct } from "../../features/product/productSlice";
+import Dropzone from "react-dropzone";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
 
-  const { isError, success, message } = useSelector((state) => state.product);
+  const { isError, message } = useSelector((state) => state.product);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(addProduct(values));
@@ -26,13 +27,13 @@ const CreateProduct = () => {
           color: "",
           brand: "",
           quantity: Number,
-          images: "",
+          image: [],
         }}
         validationSchema={ProductSchema}
         onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
-          <Form className="d-flex flex-column gap-15">
+          <Form className="d-flex flex-column gap-15 px-5 product-form">
             <Field
               className="form-control"
               name="title"
@@ -60,9 +61,14 @@ const CreateProduct = () => {
             <Field
               className="form-control"
               name="category"
-              type="text"
+              as="select"
               placeholder="Category"
-            />
+            >
+              <option value="">Select a category</option>
+              <option value="laptop">Laptop</option>
+              <option value="telephone">Telephone</option>
+              <option value="tablet">Tablet</option>
+            </Field>
             {errors.category && touched.category && (
               <div>{errors.category}</div>
             )}
@@ -70,17 +76,26 @@ const CreateProduct = () => {
             <Field
               className="form-control"
               name="color"
-              type="text"
+              as="select"
               placeholder="Color"
-            />
+            >
+              <option value="">Select a color</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="blue">Blue</option>
+            </Field>
             {errors.color && touched.color && <div>{errors.color}</div>}
-
             <Field
               className="form-control"
               name="brand"
-              type="text"
+              as="select"
               placeholder="Brand"
-            />
+            >
+              <option value="">Select a brand</option>
+              <option value="apple">Apple</option>
+              <option value="samsung">Samsung</option>
+              <option value="huawei">Huawei</option>
+            </Field>
             {errors.brand && touched.brand && <div>{errors.brand}</div>}
             <Field
               className="form-control"
@@ -88,14 +103,35 @@ const CreateProduct = () => {
               type="number"
               placeholder="Quantity"
             />
-            {errors.brand && touched.brand && <div>{errors.brand}</div>}
+            {errors.quantity && touched.quantity && (
+              <div>{errors.quantity}</div>
+            )}
             <Field
-              className="form-control"
-              name="images"
-              type="image"
-              placeholder="Image"
+              name="image"
+              render={({ field, form }) => (
+                <Dropzone
+                  onDrop={(acceptedFiles) => {
+                    form.setFieldValue(field.name, acceptedFiles[0]);
+                  }}
+                  accept="image/*"
+                >
+                  {({ getRootProps, getInputProps }) => (
+                    <div className="dropzone" {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      {field.value instanceof File ? (
+                        <img
+                          src={URL.createObjectURL(field.value)}
+                          alt="preview"
+                        />
+                      ) : (
+                        <p>Drag and drop an image, or click to select a file</p>
+                      )}
+                    </div>
+                  )}
+                </Dropzone>
+              )}
             />
-            {errors.images && touched.images && <div>{errors.images}</div>}
+            {errors.image && touched.image && <div>{errors.images}</div>}
 
             <div>
               <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
