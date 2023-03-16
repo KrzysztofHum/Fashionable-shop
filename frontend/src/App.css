@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 :root {
@@ -163,6 +164,17 @@ ul {
   transform: translate3d(0px, 64px, 0px) !important;
 }
 
+.hamburger-menu {
+  background-color: var(--dark-1);
+  border: none;
+  color: white;
+}
+
+.hamburger-menu svg {
+  width: 35px;
+  height: 35px;
+}
+
 .header-upper .dropdown button:focus,
 .header-bottom .dropdown button:focus {
   box-shadow: none;
@@ -196,6 +208,45 @@ ul {
   width: 100%;
   padding: 0;
   transform: translate3d(0px, 57px, 0px) !important;
+}
+
+.header-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .header-mobile {
+    /* display: block; */
+  }
+  .header-logo {
+    font-size: 1rem;
+  }
+  .header-top-strip {
+    display: none;
+  }
+  .header-upper .header-upper-links {
+    padding-left: 0px;
+  }
+  .header-bottom {
+    display: none;
+  }
+  .header-upper-links-text {
+    display: none;
+  }
+  .search-bar {
+    order: 1;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
 }
 
 /* Header Part End Here*/
@@ -881,7 +932,7 @@ ul {
 }
 
 .dropzone {
-    flex: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -892,7 +943,7 @@ ul {
   background-color: #fafafa;
   color: #bdbdbd;
   outline: none;
-  transition: border .24s ease-in-out;
+  transition: border 0.24s ease-in-out;
 }
 
 /* Admin Panel End*/
