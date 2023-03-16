@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 
-const HeaderUpper = () => {
+const HeaderUpper = ({ toggleHamburger }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -11,19 +13,18 @@ const HeaderUpper = () => {
     dispatch(logout());
     dispatch(reset());
     navigate("/");
+    console.log(toggleHamburger);
   };
   return (
     <div className="header-upper py-3">
       <div className="container-xxl">
         <div className="row align-items-center">
-          <div className="col-2">
-            <h2>
-              <Link className="text-white" to="/">
-                Media-King
-              </Link>
-            </h2>
+          <div className="col-4 col-lg-2 header-logo">
+            <Link className="text-white fs-6" to="/">
+              Media-King
+            </Link>
           </div>
-          <div className="col-8 col-lg-5 search-bar">
+          <div className="col-12 col-lg-10 col-xl-5 search-bar">
             <div className="input-group">
               <input
                 type="text"
@@ -37,25 +38,25 @@ const HeaderUpper = () => {
               </span>
             </div>
           </div>
-          <div className="col-xl-5 col-6 header-upper-links d-flex align-items-center justify-content-between">
-            <div>
+          <div className="col-xl-5  col-8 header-upper-links d-flex align-items-center justify-content-between">
+            {/* <div>
               <Link
                 className="d-flex align-items-center gap-10 text-white"
                 to="/compare-product"
               >
                 <img src="images/compare.svg" alt="compare" />
-                <p className="mb-0">
+                <p className="mb-0 header-upper-links-text">
                   Compare <br /> Products
                 </p>
               </Link>
-            </div>
+            </div> */}
             <div>
               <Link
                 className="d-flex align-items-center gap-10 text-white"
                 to="/wishlist"
               >
-                <img src="images/wishlist.svg" alt="wishlist" />
-                <p className="mb-0">
+                <AiOutlineHeart />
+                <p className="mb-0  header-upper-links-text">
                   Favourite <br /> wishlist
                 </p>
               </Link>
@@ -63,14 +64,16 @@ const HeaderUpper = () => {
             {user ? (
               <div className="dropdown">
                 <button
-                  className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center"
+                  className="btn btn-secondary bg-transparent border-0 p-1 d-flex align-items-center"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src="images/user.svg" alt="user" />
-                  <span className="mb-0">{user.firstname}</span>
+                  <AiOutlineUser />
+                  <span className="mb-0  header-upper-links-text">
+                    {user.firstname}
+                  </span>
                 </button>
                 <ul
                   className="dropdown-menu"
@@ -115,12 +118,17 @@ const HeaderUpper = () => {
                 to="/cart"
               >
                 <img src="images/cart.svg" alt="cart" />
-                <div className="d-flex flex-column gap-10">
+                <div className="d-flex flex-column">
                   <span className="badge bg-white text-dark">0</span>
 
                   <p className="mb-0">$ 100</p>
                 </div>
               </Link>
+            </div>
+            <div className="hamburger-menu">
+              <button onClick={toggleHamburger}>
+                <RxHamburgerMenu />
+              </button>
             </div>
           </div>
         </div>
