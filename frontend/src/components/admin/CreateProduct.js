@@ -12,6 +12,16 @@ const CreateProduct = () => {
   const { isError, message } = useSelector((state) => state.product);
   const imgState = useSelector((state) => state.upload.images);
 
+  const renderError = (name) => {
+    return (
+      <div>
+        {formik.errors[name] && formik.touched[name] && (
+          <div>{formik.errors[name]}</div>
+        )}
+      </div>
+    );
+  };
+
   const img = [];
   imgState.forEach((i) => {
     img.push({
@@ -23,6 +33,7 @@ const CreateProduct = () => {
   useEffect(() => {
     formik.values.images = img;
   }, [img]);
+
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -59,9 +70,7 @@ const CreateProduct = () => {
             onBlur={formik.handleBlur("title")}
             value={formik.values.title}
           />
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("title")}
           <input
             className="form-control"
             name="description"
@@ -71,9 +80,7 @@ const CreateProduct = () => {
             onBlur={formik.handleBlur("description")}
             value={formik.values.description}
           />
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("description")}
 
           <input
             className="form-control"
@@ -84,9 +91,7 @@ const CreateProduct = () => {
             onBlur={formik.handleBlur("price")}
             value={formik.values.price}
           />
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("price")}
           <select
             className="form-control"
             name="category"
@@ -101,9 +106,7 @@ const CreateProduct = () => {
             <option value="telephone">Telephone</option>
             <option value="tablet">Tablet</option>
           </select>
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("category")}
 
           <select
             className="form-control"
@@ -119,9 +122,7 @@ const CreateProduct = () => {
             <option value="white">White</option>
             <option value="blue">Blue</option>
           </select>
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("color")}
           <select
             className="form-control"
             name="brand"
@@ -136,9 +137,7 @@ const CreateProduct = () => {
             <option value="samsung">Samsung</option>
             <option value="huawei">Huawei</option>
           </select>
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("brand")}
           <input
             className="form-control"
             name="quantity"
@@ -148,9 +147,7 @@ const CreateProduct = () => {
             onBlur={formik.handleBlur("quantity")}
             value={formik.values.quantity}
           />
-          {formik.errors.quantity && formik.touched.quantity && (
-            <div>{formik.errors.quantity}</div>
-          )}
+          {renderError("quantity")}
           <div>
             <Dropzone
               onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
