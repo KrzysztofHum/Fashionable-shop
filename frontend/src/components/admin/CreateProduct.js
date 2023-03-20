@@ -1,14 +1,13 @@
-import { Formik, Form, Field } from "formik";
+import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import ProductSchema from "../../utils/product/ProductSchema";
 import { addProduct } from "../../features/product/productSlice";
 import Dropzone from "react-dropzone";
 import { delImg, uploadImg } from "../../features/upload/uploadSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
-  const [images, setImages] = useState([]);
 
   const { isError, message } = useSelector((state) => state.product);
   const imgState = useSelector((state) => state.upload.images);
@@ -22,147 +21,176 @@ const CreateProduct = () => {
   });
   console.log(img);
   useEffect(() => {
-    Formik.values.images = img;
+    formik.values.images = img;
   }, [img]);
-
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(addProduct(values));
-    resetForm();
-  };
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      price: Number,
+      category: "",
+      color: "",
+      brand: "",
+      quantity: Number,
+      images: "",
+    },
+    validationSchema: ProductSchema,
+    onSubmit: (values) => {
+      dispatch(addProduct(values));
+      formik.resetForm();
+    },
+  });
 
   return (
     <div>
       <h3 className="mb-4">Add Product</h3>
       {isError && <div>{message}</div>}
-      <Formik
-        initialValues={{
-          title: "",
-          description: "",
-          price: Number,
-          category: "",
-          color: "",
-          brand: "",
-          quantity: Number,
-          images: "",
-        }}
-        validationSchema={ProductSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => (
-          <Form className="d-flex flex-column gap-15 px-5 product-form">
-            <Field
-              className="form-control"
-              name="title"
-              type="text"
-              placeholder="Title"
-            />
-            {errors.title && touched.title && <div>{errors.title}</div>}
-            <Field
-              className="form-control"
-              name="description"
-              type="text"
-              placeholder="Description"
-            />
-            {errors.description && touched.description && (
-              <div>{errors.description}</div>
-            )}
+      <div>
+        <form
+          className="d-flex flex-column gap-15 px-5 product-form"
+          onSubmit={formik.handleSubmit}
+        >
+          <input
+            className="form-control"
+            name="title"
+            type="text"
+            placeholder="Title"
+            onChange={formik.handleChange("title")}
+            onBlur={formik.handleBlur("title")}
+            value={formik.values.title}
+          />
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
+          <input
+            className="form-control"
+            name="description"
+            type="text"
+            placeholder="Description"
+            onChange={formik.handleChange("description")}
+            onBlur={formik.handleBlur("description")}
+            value={formik.values.description}
+          />
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
 
-            <Field
-              className="form-control"
-              name="price"
-              type="number"
-              placeholder="Price"
-            />
-            {errors.price && touched.price && <div>{errors.price}</div>}
-            <Field
-              className="form-control"
-              name="category"
-              as="select"
-              placeholder="Category"
-            >
-              <option value="">Select a category</option>
-              <option value="laptop">Laptop</option>
-              <option value="telephone">Telephone</option>
-              <option value="tablet">Tablet</option>
-            </Field>
-            {errors.category && touched.category && (
-              <div>{errors.category}</div>
-            )}
+          <input
+            className="form-control"
+            name="price"
+            type="number"
+            placeholder="Price"
+            onChange={formik.handleChange("price")}
+            onBlur={formik.handleBlur("price")}
+            value={formik.values.price}
+          />
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
+          <select
+            className="form-control"
+            name="category"
+            as="select"
+            placeholder="Category"
+            onChange={formik.handleChange("category")}
+            onBlur={formik.handleBlur("category")}
+            value={formik.values.category}
+          >
+            <option value="">Select a category</option>
+            <option value="laptop">Laptop</option>
+            <option value="telephone">Telephone</option>
+            <option value="tablet">Tablet</option>
+          </select>
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
 
-            <Field
-              className="form-control"
-              name="color"
-              as="select"
-              placeholder="Color"
+          <select
+            className="form-control"
+            name="color"
+            as="select"
+            placeholder="Color"
+            onChange={formik.handleChange("color")}
+            onBlur={formik.handleBlur("color")}
+            value={formik.values.color}
+          >
+            <option value="">Select a color</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="blue">Blue</option>
+          </select>
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
+          <select
+            className="form-control"
+            name="brand"
+            as="select"
+            placeholder="Brand"
+            onChange={formik.handleChange("brand")}
+            onBlur={formik.handleBlur("brand")}
+            value={formik.values.brand}
+          >
+            <option value="">Select a brand</option>
+            <option value="apple">Apple</option>
+            <option value="samsung">Samsung</option>
+            <option value="huawei">Huawei</option>
+          </select>
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
+          <input
+            className="form-control"
+            name="quantity"
+            type="number"
+            placeholder="Quantity"
+            onChange={formik.handleChange("quantity")}
+            onBlur={formik.handleBlur("quantity")}
+            value={formik.values.quantity}
+          />
+          {formik.errors.quantity && formik.touched.quantity && (
+            <div>{formik.errors.quantity}</div>
+          )}
+          <div>
+            <Dropzone
+              onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
             >
-              <option value="">Select a color</option>
-              <option value="black">Black</option>
-              <option value="white">White</option>
-              <option value="blue">Blue</option>
-            </Field>
-            {errors.color && touched.color && <div>{errors.color}</div>}
-            <Field
-              className="form-control"
-              name="brand"
-              as="select"
-              placeholder="Brand"
-            >
-              <option value="">Select a brand</option>
-              <option value="apple">Apple</option>
-              <option value="samsung">Samsung</option>
-              <option value="huawei">Huawei</option>
-            </Field>
-            {errors.brand && touched.brand && <div>{errors.brand}</div>}
-            <Field
-              className="form-control"
-              name="quantity"
-              type="number"
-              placeholder="Quantity"
-            />
-            {errors.quantity && touched.quantity && (
-              <div>{errors.quantity}</div>
-            )}
-            <div>
-              <Dropzone
-                onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
-              >
-                {({ getRootProps, getInputProps }) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <p>
-                        Drag 'n' drop somne files here, or click to select files
-                      </p>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>
-            </div>
-            <div className="showimages d-flex flex-wrap gap-3">
-              {imgState?.map((i, j) => {
-                return (
-                  <div className="position-relative" key={j}>
-                    <button
-                      type="button"
-                      className="btn-close position-absloute"
-                      style={{ top: "10px", right: "10px" }}
-                      onClick={() => dispatch(delImg(i.public_id))}
-                    ></button>
-                    <img src={i.url} alt="" width={200} height={200} />
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p>
+                      Drag 'n' drop somne files here, or click to select files
+                    </p>
                   </div>
-                );
-              })}
+                </section>
+              )}
+            </Dropzone>
+          </div>
+          <div className="showimages d-flex flex-wrap gap-3">
+            {imgState?.map((i, j) => {
+              return (
+                <div className="position-relative" key={j}>
+                  <button
+                    type="button"
+                    className="btn-close position-absloute"
+                    style={{ top: "10px", right: "10px" }}
+                    onClick={() => dispatch(delImg(i.public_id))}
+                  ></button>
+                  <img src={i.url} alt="" width={200} height={200} />
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
+              <button type="submit" className="button border-0">
+                Add Product
+              </button>
             </div>
-            <div>
-              <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-                <button type="submit" className="button border-0">
-                  Add Product
-                </button>
-              </div>
-            </div>
-          </Form>
-        )}
-      </Formik>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
