@@ -8,11 +8,6 @@ const Header = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState("false");
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
-    if (hamburgerOpen) {
-      document.body.setAttribute("style", "overflow: visible");
-    } else {
-      document.body.setAttribute("style", "overflow: hidden");
-    }
   };
   return (
     <header>

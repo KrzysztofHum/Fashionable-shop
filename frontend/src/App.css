@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 :root {
@@ -166,10 +165,13 @@ a:hover svg {
 }
 
 .header-upper .dropdown-menu {
-  background-color: var(--dark);
+  background-color: white;
   width: 100%;
   padding: 0;
-  transform: translate3d(0px, 64px, 0px) !important;
+  border: 2px solid var(--dark);
+}
+
+.dropdown-user-item {
 }
 
 .hamburger-menu {
@@ -199,19 +201,17 @@ a:hover svg {
   color: var(--yellow-btn);
 }
 
-.header-upper .dropdown-item,
-.header-bottom .dropdown-item {
-  padding: 20px;
-  margin-bottom: 3px;
-  border-bottom: 1px solid var(--drark-grey);
-}
-
 .header-upper .dropdown-item:hover,
 .header-bottom .dropdown-item:hover {
   background-color: transparent;
   color: var(--yellow-btn) !important;
 }
 
+.header-bottom .dropdown-item {
+  padding: 20px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--drark-grey);
+}
 .header-bottom .menu-links a,
 .header-bottom .dropdown button {
   color: white;
@@ -226,7 +226,7 @@ a:hover svg {
   background-color: var(--dark);
   width: 100%;
   padding: 0;
-  transform: translate3d(0px, 57px, 0px) !important;
+  transform: translate3d(0px, 61px, 0px) !important;
 }
 
 .header-mobile-active {

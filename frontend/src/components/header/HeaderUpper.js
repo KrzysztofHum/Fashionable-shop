@@ -82,7 +82,7 @@ const HeaderUpper = ({ toggleHamburger }) => {
                   {user.role === "admin" && (
                     <li>
                       <Link
-                        className="dropdown-item text-white"
+                        className="dropdown-item"
                         onClick={console.log("createItem")}
                       >
                         Create item
@@ -90,10 +90,7 @@ const HeaderUpper = ({ toggleHamburger }) => {
                     </li>
                   )}
                   <li>
-                    <Link
-                      className="dropdown-item text-white"
-                      onClick={onLogout}
-                    >
+                    <Link className="dropdown-item" onClick={onLogout}>
                       Logout
                     </Link>
                   </li>
