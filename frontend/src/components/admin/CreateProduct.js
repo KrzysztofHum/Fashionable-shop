@@ -3,11 +3,27 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductSchema from "../../utils/product/ProductSchema";
 import { addProduct } from "../../features/product/productSlice";
 import Dropzone from "react-dropzone";
+import { delImg, uploadImg } from "../../features/upload/uploadSlice";
+import { useEffect, useState } from "react";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
+  const [images, setImages] = useState([]);
 
   const { isError, message } = useSelector((state) => state.product);
+  const imgState = useSelector((state) => state.upload.images);
+
+  const img = [];
+  imgState.forEach((i) => {
+    img.push({
+      public_id: i.public_id,
+      url: i.url,
+    });
+  });
+  console.log(img);
+  useEffect(() => {
+    Formik.values.images = img;
+  }, [img]);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(addProduct(values));
@@ -27,7 +43,7 @@ const CreateProduct = () => {
           color: "",
           brand: "",
           quantity: Number,
-          image: [],
+          images: "",
         }}
         validationSchema={ProductSchema}
         onSubmit={handleSubmit}
@@ -106,33 +122,37 @@ const CreateProduct = () => {
             {errors.quantity && touched.quantity && (
               <div>{errors.quantity}</div>
             )}
-            <Field
-              name="image"
-              render={({ field, form }) => (
-                <Dropzone
-                  onDrop={(acceptedFiles) => {
-                    form.setFieldValue(field.name, acceptedFiles[0]);
-                  }}
-                  accept="image/*"
-                >
-                  {({ getRootProps, getInputProps }) => (
-                    <div className="dropzone" {...getRootProps()}>
+            <div>
+              <Dropzone
+                onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
+              >
+                {({ getRootProps, getInputProps }) => (
+                  <section>
+                    <div {...getRootProps()}>
                       <input {...getInputProps()} />
-                      {field.value instanceof File ? (
-                        <img
-                          src={URL.createObjectURL(field.value)}
-                          alt="preview"
-                        />
-                      ) : (
-                        <p>Drag and drop an image, or click to select a file</p>
-                      )}
+                      <p>
+                        Drag 'n' drop somne files here, or click to select files
+                      </p>
                     </div>
-                  )}
-                </Dropzone>
-              )}
-            />
-            {errors.image && touched.image && <div>{errors.images}</div>}
-
+                  </section>
+                )}
+              </Dropzone>
+            </div>
+            <div className="showimages d-flex flex-wrap gap-3">
+              {imgState?.map((i, j) => {
+                return (
+                  <div className="position-relative" key={j}>
+                    <button
+                      type="button"
+                      className="btn-close position-absloute"
+                      style={{ top: "10px", right: "10px" }}
+                      onClick={() => dispatch(delImg(i.public_id))}
+                    ></button>
+                    <img src={i.url} alt="" width={200} height={200} />
+                  </div>
+                );
+              })}
+            </div>
             <div>
               <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
                 <button type="submit" className="button border-0">
