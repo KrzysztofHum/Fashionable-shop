@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 :root {
@@ -76,7 +75,9 @@ a:hover svg {
   padding: 13px 33px;
   border-radius: 25px;
 }
-.button:hover {
+.button:hover,
+.button-2:hover,
+.button-category:hover {
   background-color: var(--yellow-btn);
   color: var(--dark);
 }
@@ -89,9 +90,15 @@ a:hover svg {
   border-radius: 25px;
   margin: 1rem;
 }
-.button-2:hover {
-  background-color: var(--yellow-btn);
-  color: var(--dark);
+
+.button-category {
+  background-color: var(--dark-grey-1);
+  color: white;
+  font-size: 14px;
+  padding: 13px 40px;
+  border-radius: 25px;
+  border: 0;
+  margin-bottom: 1rem;
 }
 
 .icon-button {
@@ -166,10 +173,13 @@ a:hover svg {
 }
 
 .header-upper .dropdown-menu {
-  background-color: var(--dark);
+  background-color: white;
   width: 100%;
   padding: 0;
-  transform: translate3d(0px, 64px, 0px) !important;
+  border: 2px solid var(--dark);
+}
+
+.dropdown-user-item {
 }
 
 .hamburger-menu {
@@ -199,19 +209,17 @@ a:hover svg {
   color: var(--yellow-btn);
 }
 
-.header-upper .dropdown-item,
-.header-bottom .dropdown-item {
-  padding: 20px;
-  margin-bottom: 3px;
-  border-bottom: 1px solid var(--drark-grey);
-}
-
 .header-upper .dropdown-item:hover,
 .header-bottom .dropdown-item:hover {
   background-color: transparent;
   color: var(--yellow-btn) !important;
 }
 
+.header-bottom .dropdown-item {
+  padding: 20px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--drark-grey);
+}
 .header-bottom .menu-links a,
 .header-bottom .dropdown button {
   color: white;
@@ -226,7 +234,7 @@ a:hover svg {
   background-color: var(--dark);
   width: 100%;
   padding: 0;
-  transform: translate3d(0px, 57px, 0px) !important;
+  transform: translate3d(0px, 61px, 0px) !important;
 }
 
 .header-mobile-active {
@@ -320,62 +328,16 @@ a:hover svg {
 /* Footer Part End Here*/
 
 /* Home Page */
+
 .main-banner-content {
-  top: 15%;
-  left: 5%;
-}
-.main-banner-content h4 {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: var(--color-orange);
-  margin: 0 0 12px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-.main-banner-content h5 {
-  font-size: 42px;
-  line-height: 54px;
-  letter-spacing: -2px;
-  font-weight: 500;
-  text-transform: none;
+  background-image: url("../public/images/mac-book-banner.jpg");
+  background-size: cover;
+  color: var(--yellow-btn);
 }
 
-.main-banner-content p {
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.4;
-  color: var(--dark);
-}
-.small-banner-content {
-  top: 25%;
-  left: 10%;
-}
-.small-banner-content h4 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: var(--color-orange);
-  margin: 0 0 12px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-.small-banner-content h5 {
-  font-size: 22px;
-  line-height: 34px;
-  letter-spacing: -2px;
-  font-weight: 500;
-  text-transform: none;
-}
-
-.small-banner-content p {
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.4;
-  color: var(--dark);
-}
 .small-banner {
-  width: 49%;
+  background-image: url("../public/images/catbanner-01.jpg");
+  background-size: cover;
 }
 
 /* home wrapper 2 */
@@ -386,33 +348,14 @@ a:hover svg {
 /* home wrapper 2 ends */
 /* categories section */
 
-.categories {
-  background-color: white;
-  box-shadow: 0 0 10px #0000001a;
-  padding: 15px;
+.carousel-item img {
+  max-height: 50vh;
 }
-.categories > div {
-  width: 25%;
-  padding: 10px 10px 10px 20px;
-}
-.categories > div > div {
-  width: 60%;
-}
-.categories > div:nth-child(1),
-.categories > div:nth-child(2),
-.categories > div:nth-child(3),
-.categories > div:nth-child(4) {
-  border-bottom: 1px solid var(--color-white-2);
-}
-.categories > div:nth-child(1),
-.categories > div:nth-child(2),
-.categories > div:nth-child(3) {
-  border-right: 1px solid var(--color-white-2);
-}
-.categories > div:nth-child(5),
-.categories > div:nth-child(6),
-.categories > div:nth-child(7) {
-  border-right: 1px solid var(--color-white-2);
+
+@media (max-width: 992px) {
+  .carousel-item img {
+    max-height: 30vh;
+  }
 }
 /* categories section ends here */
 /* Home Page Ends */
@@ -480,15 +423,7 @@ a:hover svg {
 .product-card .product-image img {
   object-fit: contain;
 }
-.product-card .product-image > img:last-child {
-  display: none;
-}
-.product-card:hover .product-image > img:nth-child(1) {
-  display: none;
-}
-.product-card:hover .product-image > img:last-child {
-  display: block;
-}
+
 .product-card:hover .action-bar {
   right: 15px;
 }

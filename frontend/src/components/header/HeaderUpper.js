@@ -81,19 +81,13 @@ const HeaderUpper = ({ toggleHamburger }) => {
                 >
                   {user.role === "admin" && (
                     <li>
-                      <Link
-                        className="dropdown-item text-white"
-                        onClick={console.log("createItem")}
-                      >
+                      <Link className="dropdown-item" to="/admin">
                         Create item
                       </Link>
                     </li>
                   )}
                   <li>
-                    <Link
-                      className="dropdown-item text-white"
-                      onClick={onLogout}
-                    >
+                    <Link className="dropdown-item" onClick={onLogout}>
                       Logout
                     </Link>
                   </li>
@@ -106,7 +100,7 @@ const HeaderUpper = ({ toggleHamburger }) => {
                   to="/signin"
                 >
                   <img src="images/user.svg" alt="user" />
-                  <p className="mb-0">
+                  <p className="mb-0 header-upper-links-text">
                     Login <br /> My Account
                   </p>
                 </Link>
