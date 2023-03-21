@@ -182,16 +182,16 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-3">
+          <div className="col-12 col-sm-6 col-lg-3">
             <BlogCard />
           </div>
-          <div className="col-3">
+          <div className="col-12 col-sm-6 col-lg-3">
             <BlogCard />
           </div>
-          <div className="col-3">
+          <div className="col-12 col-sm-6 col-lg-3">
             <BlogCard />
           </div>
-          <div className="col-3">
+          <div className="col-12 col-sm-6 col-lg-3">
             <BlogCard />
           </div>
         </div>
