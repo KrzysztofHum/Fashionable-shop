@@ -2,154 +2,124 @@ import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import Container from "../components/Container";
 import BlogCard from "../components/BlogCard";
-import SpecialProduct from "../components/SpecialProduct";
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   return (
     <>
-      <Container class1="home-wrapper-1 py-5">
+      <Container class1="home-wrapper-1 py-4">
         <div className="row">
-          <div className="col-6">
-            <div className="main-banner position-relative ">
-              <img
-                src="images/main-banner-1.jpg"
-                className="img-fluid rounded-3"
-                alt="main banner"
-              />
-              <div className="main-banner-content position-absolute">
-                <h4>SUPERCHARGED FOR PROS.</h4>
-                <h5>iPad S13+ Pro.</h5>
-                <p>From $999.00 or $41.62/mo.</p>
-                <Link to="/" className="button">
-                  BUY NOW
-                </Link>
-              </div>
+          <div className="col-12 col-md-6 mt-2">
+            <div className="main-banner-content p-3">
+              <h4>SUPER FOR PROGRAMMERS</h4>
+              <h5>Mac Book Pro 13.3</h5>
+              <p>From $1499.00 or $79.00/mo.</p>
+              <Link to="/" className="button">
+                BUY NOW
+              </Link>
             </div>
           </div>
-          <div className="col-6">
-            <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-01.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Best Sake</h4>
-                  <h5>iPad S13+ Pro.</h5>
-                  <p>
-                    From $999.00 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-02.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
-                  <p>
-                    From $999.00 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative ">
-                <img
-                  src="images/catbanner-03.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
-                  <p>
-                    From $999.00 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative ">
-                <img
-                  src="images/catbanner-04.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
-                  <p>
-                    From $999.00 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
+          <div className="col-12 col-md-6 mt-2">
+            <div className="small-banner p-3">
+              <h4>SUPER TO STUDY</h4>
+              <h5>Samsung Galaxy Tab S6</h5>
+              <p>From $1499.00 or $79.00/mo.</p>
+              <Link to="/" className="button">
+                BUY NOW
+              </Link>
             </div>
           </div>
         </div>
       </Container>
       <Container class1="home-wrapper-2 py-5">
-        <div className="row">
-          <div className="col-12">
-            <div className="categories d-flex justify-content-between flex-wrap align-items-center">
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Music & Gaming</h6>
-                  <p>10 Items</p>
+        <h2>Popular Categories</h2>
+        <div className="row pt-5">
+          <div
+            id="carouselExampleCaptions"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="images/cat-laptop.jpg"
+                  class="d-block w-100"
+                  alt="brand"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Laptops</h5>
+                  <p>Buy your dream laptop.</p>
                 </div>
-                <img src="images/camera.jpg" alt="camera" />
               </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Cameras</h6>
-                  <p>10 Items</p>
+              <div class="carousel-item">
+                <img
+                  src="images/cat-telephone.jpg"
+                  class="d-block w-100"
+                  alt="brand"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Mobile Phone</h5>
+                  <p>latest mobile phone brands.</p>
                 </div>
-                <img src="images/camera.jpg" alt="camera" />
               </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Smart Tv</h6>
-                  <p>10 Items</p>
+              <div class="carousel-item">
+                <img
+                  src="images/cat-tablet.jpg"
+                  class="d-block w-100"
+                  alt="brand"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Tablets</h5>
+                  <p>Tablets ideal for learning and more. </p>
                 </div>
-                <img src="images/tv.jpg" alt="camera" />
-              </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Smart Watches</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/headphone.jpg" alt="camera" />
-              </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Music & Gaming</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/camera.jpg" alt="camera" />
-              </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Cameras</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/camera.jpg" alt="camera" />
-              </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Smart Tv</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/tv.jpg" alt="camera" />
-              </div>
-              <div className="d-flex gap align-items-center">
-                <div>
-                  <h6>Smart Watches</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/headphone.jpg" alt="camera" />
               </div>
             </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </Container>
@@ -164,7 +134,6 @@ const Home = () => {
           <ProductCard />
         </div>
       </Container>
-
       <Container class1="famous-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-3">
@@ -213,26 +182,12 @@ const Home = () => {
           </div>
         </div>
       </Container>
-      <Container class1="special-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Special Products</h3>
-          </div>
-        </div>
-        <div className="row">
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
-        </div>
-      </Container>
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Our Popular Products</h3>
           </div>
         </div>
-        {/* TODO Product carts */}
       </Container>
       <Container class1="marque-wrapper home-wrapper-2 py-5">
         <div className="row">
@@ -268,7 +223,6 @@ const Home = () => {
           </div>
         </div>
       </Container>
-
       <Container class1="blog-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
