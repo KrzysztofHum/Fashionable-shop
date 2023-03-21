@@ -2,11 +2,9 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { Link, useLocation } from "react-router-dom";
 
-const ProductCard = (props) => {
-  const { grid } = props;
-  console.log(grid);
+const ProductCard = () => {
   let location = useLocation();
-
+console.log('test')
   return (
     <>
       <div className="col-12 col-sm-6 col-lg-3">

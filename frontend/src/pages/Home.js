@@ -64,34 +64,37 @@ const Home = () => {
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="images/cat-laptop.jpg"
+                  loading="lazy"
+                  src="images/cat-laptop1.jpg"
                   class="d-block w-100"
                   alt="brand"
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Laptops</h5>
+                  <button className="button-category">Laptops</button>
                   <p>Buy your dream laptop.</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img
+                  loading="lazy"
                   src="images/cat-telephone.jpg"
                   class="d-block w-100"
                   alt="brand"
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Mobile Phone</h5>
+                  <button className="button-category">Mobile Phone</button>
                   <p>latest mobile phone brands.</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img
+                  loading="lazy"
                   src="images/cat-tablet.jpg"
                   class="d-block w-100"
                   alt="brand"
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Tablets</h5>
+                  <button className="button-category">Tablets</button>
                   <p>Tablets ideal for learning and more. </p>
                 </div>
               </div>
@@ -134,41 +137,45 @@ const Home = () => {
           <ProductCard />
         </div>
       </Container>
-      {/* <Container class1="popular-wrapper py-5 home-wrapper-2">
+      <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Our Popular Products</h3>
           </div>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
-      </Container> */}
+      </Container>
       <Container class1="marque-wrapper home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
             <div className="marquee-inner-wrapper card-wrapper">
               <Marquee className="d-flex">
                 <div className="mx-4 w-25">
-                  <img src="images/brand-01.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-01.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-02.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-02.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-03.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-03.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-04.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-04.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-05.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-05.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-06.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-06.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-07.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-07.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-08.png" alt="brand" />
+                  <img loading="lazy" src="images/brand-08.png" alt="brand" />
                 </div>
               </Marquee>
             </div>
