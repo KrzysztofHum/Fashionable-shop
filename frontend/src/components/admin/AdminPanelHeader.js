@@ -19,7 +19,7 @@ const AdminPanelHeader = () => {
           />
           <div>
             <div className="fw-bold">Krzysztof H</div>
-            <div>mediaexpert@gmail.com</div>
+            <div className="admin-header-email">mediaexpert@gmail.com</div>
           </div>
         </div>
       </div>

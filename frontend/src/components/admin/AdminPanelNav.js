@@ -11,7 +11,7 @@ const AdminPanelNav = () => {
     <nav className="admin-nav">
       <ul className="p-1">
         <li>
-          <div className="admin-nav-dropdown d-flex align-items-center px-4 py-2">
+          <div className="admin-nav-dropdown d-flex align-items-center justify-content-center p-2">
             <span className="fs-4">
               <AiOutlineDashboard />
             </span>
@@ -22,7 +22,7 @@ const AdminPanelNav = () => {
           </div>
         </li>
         <li>
-          <div className="admin-nav-dropdown d-flex align-items-center px-4 py-2">
+          <div className="admin-nav-dropdown d-flex align-items-center justify-content-center p-2">
             <span className="fs-4">
               <AiOutlineUser />
             </span>
@@ -33,7 +33,7 @@ const AdminPanelNav = () => {
           </div>
         </li>
         <li>
-          <div className="admin-nav-dropdown d-flex align-items-center px-4 py-2">
+          <div className="admin-nav-dropdown d-flex align-items-center justify-content-center p-2">
             <span className="fs-4">
               <AiOutlineShoppingCart />
             </span>
@@ -44,7 +44,7 @@ const AdminPanelNav = () => {
           </div>
         </li>
         <li>
-          <div className="admin-nav-dropdown d-flex align-items-center px-4 py-2">
+          <div className="admin-nav-dropdown d-flex align-items-center justify-content-center p-2">
             <span className="fs-4">
               <AiOutlineFileText />
             </span>
