@@ -54,7 +54,7 @@ const CreateProduct = () => {
 
   return (
     <div>
-      <h3 className="mb-4">Add Product</h3>
+      <h3 className="mb-2 p-2">Add Product</h3>
       {isError && <div>{message}</div>}
       <div>
         <form
