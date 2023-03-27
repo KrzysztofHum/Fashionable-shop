@@ -26,17 +26,17 @@ const HeaderBottom = () => {
                   >
                     <li>
                       <Link className="dropdown-item text-white" to="/">
-                        Action
+                        Laptops
                       </Link>
                     </li>
                     <li>
                       <Link className="dropdown-item text-white" to="/">
-                        Another action
+                        Telephones
                       </Link>
                     </li>
                     <li>
                       <Link className="dropdown-item text-white" to="/">
-                        Something else here
+                        Tablets
                       </Link>
                     </li>
                   </ul>
@@ -45,7 +45,7 @@ const HeaderBottom = () => {
               <div className="menu-links">
                 <div className="d-flex align-items-center gap-15">
                   <Link to="/">Home</Link>
-                  <Link to="/">Our Store</Link>
+                  <Link to="/product">Our Store</Link>
                   <Link to="/">Blogs</Link>
                   <Link to="/contact">Contact</Link>
                 </div>

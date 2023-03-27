@@ -19,10 +19,9 @@ const OurStore = () => {
               <h3 className="filter-title">Shop By Categories</h3>
               <div>
                 <ul className="ps-0">
-                  <li>Watch</li>
-                  <li>Tv</li>
-                  <li>Camera</li>
-                  <li>Laptop</li>
+                  <li>Laptops</li>
+                  <li>Telephones</li>
+                  <li>Tablets</li>
                 </ul>
               </div>
             </div>
