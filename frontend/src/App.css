@@ -417,11 +417,17 @@ a:hover svg {
   overflow: hidden;
   width: 100%;
 }
+
+.product-card:hover .product-title {
+  color: var(--yellow-btn);
+}
+
 .product-card .product-image {
   height: 270px;
 }
 .product-card .product-image img {
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .product-card:hover .action-bar {

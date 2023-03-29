@@ -2,24 +2,26 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import ProductsService from "./productsService";
 
 const initialState = {
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: "",
+  loading: false,
+  error: null,
   products: [],
 };
 
-export const getProducts = createAsyncThunk("products", async (thunkAPI) => {
-  try {
-    return await ProductsService.getProducts();
-  } catch (err) {
-    const message =
-      (err.response && err.response.data && err.response.data.message) ||
-      err.message ||
-      err.toString();
-    return thunkAPI.rejectWithValue(message);
+export const fetchProducts = createAsyncThunk(
+  "products/fetch",
+  async (_, thunkAPI) => {
+    try {
+      const data = await ProductsService.getProducts();
+      return data;
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-});
+);
 
 export const productsSlice = createSlice({
   name: "products",
@@ -27,18 +29,17 @@ export const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getProducts.pending, (state) => {
-        state.isLoading = true;
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
       })
-      .addCase(getProducts.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.products = action.payload;
+      .addCase(fetchProducts.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.products = payload;
       })
-      .addCase(getProducts.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
+      .addCase(fetchProducts.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
       });
   },
 });
