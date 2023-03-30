@@ -19,7 +19,7 @@ const StoreProductCard = ({ data, grid }) => {
   console.log(images[0].url);
   return (
     <>
-      <div className="col-12 col-sm-6 col-lg-3">
+      <div className="col-12 col-sm-6 col-lg-4">
         <Link
           to={`${
             location.pathname === "/"
