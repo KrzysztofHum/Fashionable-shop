@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import ReactStars from "react-rating-stars-component";
-import ProductCard from "../components/ProductCard";
 import Color from "../components/Color";
 import Container from "../components/Container";
+import { fetchProducts } from "../features/products/productsSlice";
+import StoreProductCard from "../components/StoreProductCard";
+import { BsFilterRight } from "react-icons/bs";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
+  const dispatch = useDispatch();
+  const { products, error, loading } = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <>
       <Meta title={"Our Store"} />
       <BreadCrumb title="Our Store" />
       <Container class1="store-wrapper home-wrapper-2 py-5">
         <div className="row">
-          <div className="col-3">
+          <div className="col-3 filter-container">
             <div className="filter-card mb-3">
               <h3 className="filter-title">Shop By Categories</h3>
               <div>
                 <ul className="ps-0">
-                  <li>Watch</li>
-                  <li>Tv</li>
-                  <li>Camera</li>
-                  <li>Laptop</li>
+                  <li>Laptops</li>
+                  <li>Telephones</li>
+                  <li>Tablets</li>
                 </ul>
               </div>
             </div>
@@ -125,10 +134,10 @@ const OurStore = () => {
                 </div>
               </div>
             </div>
-            <div className="filter-card mb-3">
+            <div className="filter-card random-products mb-3">
               <h3 className="filter-title">Random Product</h3>
               <div>
-                <div className="random-products mb-3 d-flex">
+                <div className="random-product mb-3 d-flex">
                   <div className="w-50">
                     <img
                       src="images/watch.jpg"
@@ -150,7 +159,7 @@ const OurStore = () => {
                     <b>$ 300</b>
                   </div>
                 </div>
-                <div className="random-products d-flex">
+                <div className="random-product d-flex">
                   <div className="w-50">
                     <img
                       src="images/watch.jpg"
@@ -175,12 +184,15 @@ const OurStore = () => {
               </div>
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-12 col-md-9">
             <div className="filter-sort-grid mb-4">
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="d-flex align-items-center gap-10">
-                  <p className="mb-0 d-block" style={{ width: "100px" }}>
-                    Sort By:
+              <div className="d-flex justify-content-between align-items-center row">
+                <div className="d-flex align-items-center justify-content-start gap-10 col-12 col-sm-5 sort-container">
+                  <p
+                    className="mb-0 d-block text-end"
+                    style={{ width: "100px" }}
+                  >
+                    Sort:
                   </p>
                   <select
                     name=""
@@ -200,8 +212,18 @@ const OurStore = () => {
                     <option value="created-descending">Date, new to old</option>
                   </select>
                 </div>
-                <div className="d-flex align-items-center gap-10">
-                  <p className="totalproducts mb-0">21 Products</p>
+                <div className="mobile-filter-container col-4 col-sm-2">
+                  <button className="d-flex align-items-center gap-10 btn border-0">
+                    <p className="mb-0">Filters</p>
+                    <div>
+                      <BsFilterRight />
+                    </div>
+                  </button>
+                </div>
+                <div className="d-flex align-items-center gap-10 col-8  col-sm-5 justify-content-end">
+                  <p className="totalproducts mb-0">
+                    {products.length} Products
+                  </p>
                   <div className="d-flex gap-10 align-items-center grid">
                     <img
                       onClick={() => {
@@ -219,30 +241,15 @@ const OurStore = () => {
                       className="d-block img-fluid"
                       alt="grid"
                     />
-                    <img
-                      onClick={() => {
-                        setGrid(6);
-                      }}
-                      src="images/gr2.svg"
-                      className="d-block img-fluid"
-                      alt="grid"
-                    />
-
-                    <img
-                      onClick={() => {
-                        setGrid(12);
-                      }}
-                      src="images/gr.svg"
-                      className="d-block img-fluid"
-                      alt="grid"
-                    />
                   </div>
                 </div>
               </div>
             </div>
             <div className="products-list pb-5">
-              <div className="d-flex gap-10 flex-wrap">
-                <ProductCard grid={grid} />
+              <div className="d-flex flex-wrap">
+                {products.map((item) => (
+                  <StoreProductCard grid={grid} data={item} />
+                ))}
               </div>
             </div>
           </div>
