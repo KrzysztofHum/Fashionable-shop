@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="footer py-4">
         <div className="container-xxl">
           <div className="row align-items-center">
-            <div className="col-5">
+            <div className="col-md-5">
               <div className="footer-top-data d-flex gap-30 align-items-center">
                 <img src="images/newsletter.png" alt="newsletter" />
                 <h2 className="mb-0 text-white">Sign Up for News Letter</h2>
               </div>
             </div>
-            <div className="col-7">
+            <div className="col-md-7 pt-4 pt-md-0">
               <div className="input-group">
                 <input
                   type="text"
@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="footer py-4">
         <div className="container-xxl">
           <div className="row">
-            <div className="col-4">
+            <div className="col-6 col-md-4">
               <h4 className="text-white mb-4">Contact Us</h4>
               <div>
                 <address className="text-white fs-6">
@@ -54,69 +54,81 @@ const Footer = () => {
                 >
                   mediaking@gmail.com
                 </a>
-                <div className="social_icons d-flex align-items-center gap-30 mt-4">
-                  <a href="/" className="text-white">
+                <div className="social_icons d-flex align-items-center row">
+                  <a
+                    href="/"
+                    className="text-white col-6 p-3 d-flex justify-content-start align-items-center"
+                  >
                     <BsLinkedin className="fs-4" />
                   </a>
-                  <a href="/" className="text-white">
+                  <a
+                    href="/"
+                    className="text-white col-6 p-3 d-flex justify-content-start align-items-center"
+                  >
                     <BsInstagram className="fs-4" />
                   </a>
-                  <a href="/" className="text-white">
+                  <a
+                    href="/"
+                    className="text-white col-6 p-3 d-flex justify-content-start align-items-center"
+                  >
                     <BsGithub className="fs-4" />
                   </a>
-                  <a href="/" className="text-white">
+                  <a
+                    href="/"
+                    className="text-white col-6 p-3 d-flex justify-content-start align-items-center"
+                  >
                     <BsYoutube className="fs-4" />
                   </a>
                 </div>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-6 col-md-3">
               <h4 className="text-white mb-4">Information</h4>
               <div className="footer-link d-flex flex-column">
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Privacy Policy
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Refund Policy
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Shipping Policy
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Terms & Conditions
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Blogs
                 </Link>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-6 col-md-3">
               <h4 className="text-white mb-4">Accpunt</h4>
               <div className="footer-link d-flex flex-column">
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   About Us
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Faq
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Contact
                 </Link>
               </div>
             </div>
-            <div className="col-2">
+            <div className="col-6 col-md-2">
               <h4 className="text-white mb-4">Quick Links</h4>
               <div className="footer-link d-flex flex-column">
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Laptops
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Headphones
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Tablets
                 </Link>
-                <Link className="text-white py-3 mb-1" to="">
+                <Link className="text-white py-2 mb-1" to="">
                   Watch
                 </Link>
               </div>
