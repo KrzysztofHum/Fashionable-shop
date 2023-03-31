@@ -1,11 +1,13 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-var orderSchema = new mongoose.Schema(
+const { Schema } = mongoose;
+
+const orderSchema = new Schema(
   {
     products: [
       {
         product: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: "Product",
         },
         count: Number,
@@ -26,7 +28,7 @@ var orderSchema = new mongoose.Schema(
       ],
     },
     orderby: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
   },
@@ -35,4 +37,4 @@ var orderSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Order", orderSchema);
+export default mongoose.model("Order", orderSchema);

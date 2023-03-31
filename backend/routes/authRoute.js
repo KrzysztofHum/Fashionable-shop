@@ -1,5 +1,5 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   createUser,
   loginUserCtrl,
   getAllUsers,
@@ -23,9 +23,9 @@ const {
   createOrder,
   getOrders,
   updateOrderStatus,
-} = require("../controller/userCtrl");
+} from "../controller/userCtrl.js";
 
-const { authMiddleware, isAdmin } = require("../middlewares/authMiddleware");
+import { authMiddleware, isAdmin } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -58,4 +58,4 @@ router.put("/block-user/:id", authMiddleware, isAdmin, blockUser);
 router.put("/unblock-user/:id", authMiddleware, isAdmin, unblockUser);
 router.put("/refresh", handleRefreshToken);
 
-module.exports = router;
+export default router;

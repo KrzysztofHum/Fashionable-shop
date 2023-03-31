@@ -1,6 +1,6 @@
-const PCategory = require("../models/prodCategoryModel.js");
-const asyncHandler = require("express-async-handler");
-const validateMongoDbId = require("../utils/validateMongodb.js");
+import PCategory from "../models/prodCategoryModel.js";
+import asyncHandler from "express-async-handler";
+import validateMongoDbId from "../utils/validateMongodb.js";
 
 const createCategory = asyncHandler(async (req, res) => {
   try {
@@ -55,7 +55,7 @@ const getAllCategory = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {
+export {
   createCategory,
   updateCategory,
   deleteCategory,

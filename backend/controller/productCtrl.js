@@ -1,9 +1,8 @@
-const Product = require("../models/productModel");
-const asyncHandler = require("express-async-handler");
-const slugify = require("slugify");
-const validateMongoDbId = require("../utils/validateMongodb");
-const User = require("../models/userModel");
-
+import Product from "../models/productModel.js";
+import asyncHandler from "express-async-handler";
+import slugify from "slugify";
+import validateMongoDbId from "../utils/validateMongodb.js";
+import User from "../models/userModel.js";
 const createProduct = asyncHandler(async (req, res) => {
   try {
     if (req.body.title) {
@@ -192,7 +191,7 @@ const rating = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {
+export {
   createProduct,
   getaProduct,
   getAllProducts,

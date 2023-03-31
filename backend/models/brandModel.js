@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-var brandSchema = new mongoose.Schema(
+const brandSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -9,7 +9,7 @@ var brandSchema = new mongoose.Schema(
       index: true,
     },
   },
-  { timeseries: true }
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("Brand", brandSchema);
+export default mongoose.model("Brand", brandSchema);

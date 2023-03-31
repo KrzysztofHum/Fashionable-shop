@@ -1,6 +1,6 @@
-const Coupon = require("../models/couponModel");
-const validateMongoDbId = require("../utils/validateMongodb");
-const asyncHandler = require("express-async-handler");
+import Coupon from "../models/couponModel.js";
+import asyncHandler from "express-async-handler";
+import validateMongoDbId from "../utils/validateMongodb.js";
 
 const createCoupon = asyncHandler(async (req, res) => {
   try {
@@ -44,4 +44,4 @@ const deleteCoupon = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { createCoupon, getAllCoupons, updateCoupon, deleteCoupon };
+export { createCoupon, getAllCoupons, updateCoupon, deleteCoupon };
