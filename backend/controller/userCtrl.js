@@ -21,7 +21,7 @@ const createUser = asyncHandler(async (req, res) => {
     res.json(newUSer);
   } else {
     throw new Error("User Already Exists");
-    //User Already exists
+    //User Already existss
   }
 });
 
