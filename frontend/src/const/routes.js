@@ -1,4 +1,8 @@
-const API_BASE_ROUTE = "http://localhost:5000/api";
+let API_BASE_ROUTE = "http://localhost:5000/api";
+
+if (process.env.API_BASE_ROUTE) {
+  API_BASE_ROUTE = process.env.API_BASE_ROUTE;
+}
 
 export const API_ROUTES = {
   REGISTER: `${API_BASE_ROUTE}/user/register`,
