@@ -1,4 +1,4 @@
-const cloudinary = require("cloudinary");
+import cloudinary from "cloudinary";
 
 // Configuration
 cloudinary.config({
@@ -40,4 +40,4 @@ const cloudinaryDeleteImg = async (fileToDelete) => {
   });
 };
 
-module.exports = { cloudinaryUploadImg, cloudinaryDeleteImg };
+export { cloudinaryUploadImg, cloudinaryDeleteImg };

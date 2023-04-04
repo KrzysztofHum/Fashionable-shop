@@ -1,6 +1,6 @@
-const Brand = require("../models/brandModel.js");
-const asyncHandler = require("express-async-handler");
-const validateMongoDbId = require("../utils/validateMongodb.js");
+import Brand from "../models/brandModel.js";
+import asyncHandler from "express-async-handler";
+import validateMongoDbId from "../utils/validateMongodb.js";
 
 const createBrand = asyncHandler(async (req, res) => {
   try {
@@ -55,10 +55,4 @@ const getAllBrand = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {
-  createBrand,
-  updateBrand,
-  deleteBrand,
-  getBrand,
-  getAllBrand,
-};
+export { createBrand, updateBrand, deleteBrand, getBrand, getAllBrand };

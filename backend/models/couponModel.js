@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-var couponSchema = new mongoose.Schema({
+const couponSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -17,4 +17,4 @@ var couponSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Coupon", couponSchema);
+export default mongoose.model("Coupon", couponSchema);

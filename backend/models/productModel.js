@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-var productSchema = new mongoose.Schema(
+const { Schema } = mongoose;
+
+const productSchema = new Schema(
   {
     title: {
       type: String,
@@ -51,7 +53,7 @@ var productSchema = new mongoose.Schema(
       {
         star: Number,
         comment: String,
-        postedby: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        postedby: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],
     totalrating: {
@@ -62,4 +64,4 @@ var productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", productSchema);
+export default mongoose.model("Product", productSchema);

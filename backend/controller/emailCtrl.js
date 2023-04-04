@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
-const asyncHandler = require("express-async-handler");
+import nodemailer from "nodemailer";
+import asyncHandler from "express-async-handler";
 
 const sendEmail = asyncHandler(async (data, req, res) => {
   let transporter = nodemailer.createTransport({
@@ -30,4 +30,4 @@ const sendEmail = asyncHandler(async (data, req, res) => {
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 });
 
-module.exports = sendEmail;
+export default sendEmail;

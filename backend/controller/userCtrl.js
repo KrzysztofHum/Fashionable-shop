@@ -1,16 +1,16 @@
-const User = require("../models/userModel");
-const Product = require("../models/productModel");
-const Cart = require("../models/cartModel");
-const Coupon = require("../models/couponModel");
-const Order = require("../models/orderModel");
-const asyncHandler = require("express-async-handler");
-const { generateToken } = require("../config/jwtToken");
-const validateMongoDbId = require("../utils/validateMongodb");
-const { generateRefreshToken } = require("../config/refreshToken");
-const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
-const sendEmail = require("./emailCtrl");
-const uniqid = require("uniqid");
+import User from "../models/userModel.js";
+import Product from "../models/productModel.js";
+import Cart from "../models/cartModel.js";
+import Coupon from "../models/couponModel.js";
+import Order from "../models/orderModel.js";
+import asyncHandler from "express-async-handler";
+import { generateToken } from "../config/jwtToken.js";
+import validateMongoDbId from "../utils/validateMongodb.js";
+// import { generateRefreshToken } from "../config/refreshToken.js";
+import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import sendEmail from "./emailCtrl.js";
+import uniqid from "uniqid";
 
 const createUser = asyncHandler(async (req, res) => {
   const { email } = req.body;
@@ -21,7 +21,7 @@ const createUser = asyncHandler(async (req, res) => {
     res.json(newUSer);
   } else {
     throw new Error("User Already Exists");
-    //User Already exists
+    //User Already existss
   }
 });
 
@@ -30,7 +30,7 @@ const loginUserCtrl = asyncHandler(async (req, res) => {
   // check if user exists or not
   const findUser = await User.findOne({ email });
   if (findUser && (await findUser.isPasswordMatched(password))) {
-    const refreshToken = await generateRefreshToken(findUser?.id);
+    // const refreshToken = await generateRefreshToken(findUser?.id);
     const updateuser = await User.findByIdAndUpdate(
       findUser.id,
       {
@@ -64,7 +64,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
   const findAdmin = await User.findOne({ email });
   if (findAdmin.role !== "admin") throw new Error("Not Authorised");
   if (findAdmin && (await findAdmin.isPasswordMatched(password))) {
-    const refreshToken = await generateRefreshToken(findAdmin?.id);
+    // const refreshToken = await generateRefreshToken(findAdmin?.id);
     const updateuser = await User.findByIdAndUpdate(
       findAdmin.id,
       {
@@ -478,7 +478,7 @@ const updateOrderStatus = asyncHandler(async (req, res) => {
   res.json(updateOrderStatus);
 });
 
-module.exports = {
+export {
   createUser,
   loginUserCtrl,
   updatedUser,

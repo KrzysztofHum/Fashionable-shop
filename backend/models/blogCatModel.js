@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-var blogCategorySchema = new mongoose.Schema(
+const blogCategorySchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -9,7 +9,7 @@ var blogCategorySchema = new mongoose.Schema(
       index: true,
     },
   },
-  { timeseries: true }
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("BCategory", blogCategorySchema);
+export default mongoose.model("BCategory", blogCategorySchema);

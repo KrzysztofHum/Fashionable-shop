@@ -1,9 +1,8 @@
-const Blog = require("../models/blogModel");
-const User = require("../models/userModel");
-const asyncHandler = require("express-async-handler");
-const validateMongoDbId = require("../utils/validateMongodb");
-const cloudinaryUploadImg = require("../utils/cloudinary");
-const fs = require("fs");
+import Blog from "../models/blogModel.js";
+import asyncHandler from "express-async-handler";
+import validateMongoDbId from "../utils/validateMongodb.js";
+import { cloudinaryUploadImg } from "../utils/cloudinary.js";
+import fs from "fs";
 
 const createBlog = asyncHandler(async (req, res) => {
   try {
@@ -190,7 +189,7 @@ const uploadBlogs = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {
+export {
   createBlog,
   updateBlog,
   getBlog,

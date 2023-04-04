@@ -1,19 +1,21 @@
-const express = require("express");
-const dbConnect = require("./config/dbConnect");
-const dotenv = require("dotenv").config();
-const authRouter = require("./routes/authRoute");
-const productRouter = require("./routes/productRoute");
-const blogRouter = require("./routes/blogRoute");
-const brandRouter = require("./routes/brandRoute");
-const categoryRoute = require("./routes/prodCategoryRoute");
-const blogCatRoute = require("./routes/blogCatRoute");
-const couponRoute = require("./routes/couponRoute");
-const uploadRoute = require("./routes/uploadRoute");
-const bodyParser = require("body-parser");
-const { notFound, errorHandler } = require("./middlewares/errorHandler");
-const cookieParser = require("cookie-parser");
-const morgan = require("morgan");
-const cors = require("cors");
+import express from "express";
+import dbConnect from "./config/dbConnect.js";
+import dotenv from "dotenv";
+import authRouter from "./routes/authRoute.js";
+import productRouter from "./routes/productRoute.js";
+import blogRouter from "./routes/blogRoute.js";
+import brandRouter from "./routes/brandRoute.js";
+import categoryRoute from "./routes/prodCategoryRoute.js";
+import blogCatRoute from "./routes/blogCatRoute.js";
+import couponRoute from "./routes/couponRoute.js";
+import uploadRoute from "./routes/uploadRoute.js";
+import bodyParser from "body-parser";
+import { notFound, errorHandler } from "./middlewares/errorHandler.js";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import cors from "cors";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
