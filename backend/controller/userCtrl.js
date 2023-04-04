@@ -6,7 +6,7 @@ import Order from "../models/orderModel.js";
 import asyncHandler from "express-async-handler";
 import { generateToken } from "../config/jwtToken.js";
 import validateMongoDbId from "../utils/validateMongodb.js";
-import { generateRefreshToken } from "../config/refreshToken.js";
+// import { generateRefreshToken } from "../config/refreshToken.js";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import sendEmail from "./emailCtrl.js";
@@ -30,7 +30,7 @@ const loginUserCtrl = asyncHandler(async (req, res) => {
   // check if user exists or not
   const findUser = await User.findOne({ email });
   if (findUser && (await findUser.isPasswordMatched(password))) {
-    const refreshToken = await generateRefreshToken(findUser?.id);
+    // const refreshToken = await generateRefreshToken(findUser?.id);
     const updateuser = await User.findByIdAndUpdate(
       findUser.id,
       {
@@ -64,7 +64,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
   const findAdmin = await User.findOne({ email });
   if (findAdmin.role !== "admin") throw new Error("Not Authorised");
   if (findAdmin && (await findAdmin.isPasswordMatched(password))) {
-    const refreshToken = await generateRefreshToken(findAdmin?.id);
+    // const refreshToken = await generateRefreshToken(findAdmin?.id);
     const updateuser = await User.findByIdAndUpdate(
       findAdmin.id,
       {

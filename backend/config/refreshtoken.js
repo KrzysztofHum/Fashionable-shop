@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 
-export const generateRefreshToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "3d" });
-};
+// export const generateRefreshToken = (id) => {
+//   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "3d" });
+// };
