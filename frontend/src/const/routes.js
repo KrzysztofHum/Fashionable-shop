@@ -1,5 +1,5 @@
 const API_BASE_ROUTE =
-  process.env.REACT_APP_API_BASE_ROUTE || "http://localhost:5000/api";
+  process.env.REACT_APP_API_BASE_ROUTE || "https://media-king.onrender.com/api";
 
 export const API_ROUTES = {
   REGISTER: `${API_BASE_ROUTE}/user/register`,
